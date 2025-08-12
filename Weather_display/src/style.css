@@ -799,14 +799,8 @@ select.form-control {
   height: 16px;
 }
 
-/* Tab Content */
-.tab-content {
-  display: none;
-}
 
-.tab-content.active {
-  display: block;
-}
+
 
 /* Dashboard Layout */
 .dashboard-layout {

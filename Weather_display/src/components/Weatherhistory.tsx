@@ -43,4 +43,4 @@ const Weatherhistory = () => {
   )
 }
 
-export default Weatherhistory
+export default Weatherhistory;

@@ -14,6 +14,7 @@ const [activeTab, setActiveTab] = useState<string>("dashboard");
         <NavBar isActive={activeTab} setIsActive={setActiveTab}/>
         {/* Conditional rendering */}
         {activeTab === "dashboard" && <Dashboard />}
+        
         {activeTab === "weather-history" && <Weatherhistory />}
     </>
   )
