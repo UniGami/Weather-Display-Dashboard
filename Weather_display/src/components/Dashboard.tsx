@@ -1,4 +1,35 @@
+import { useEffect,useState } from "react";
+import axios from "axios";
+
 const Dashboard = () => {
+    const [data, setData] = useState(false);
+    const [loading,setLoading] = useState<boolean>(true);
+    useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/compareIfSame") // your friend's server endpoint
+      .then((res) => {
+        console.log("Server data:", res);
+        setData(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+      });
+  }, []);
+
+  const [weather, setWeather] = useState<string[]>([]);
+    useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/getData") // your friend's server endpoint
+      .then((res) => {
+        console.log("Server data:", res);
+        setWeather(res.data.res[0]);
+        console.log(weather);
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+      });
+  }, []);
   return (
     <>
       {" "}
@@ -11,21 +42,21 @@ const Dashboard = () => {
               <div className="card__header">
                 <h3>Current Weather</h3>
                 <div className="status status--success" id="weatherStatus">
-                  Live
+                   {weather  && weather[6] != null ? "Live": "Checking"}
                 </div>
               </div>
               <div className="card__body">
                 <div className="weather-main">
                   <div className="temperature">
                     <span className="temp-value" id="currentTemp">
-                      --°C
+                      {weather  && weather[6] != null ? weather[6]+"°C": "--°C"}
                     </span>
                     <div className="temp-details">
                       <div className="condition" id="currentCondition">
-                        --
+                        Partly Sunny
                       </div>
                       <div className="location" id="currentLocation">
-                        --
+                        {weather? weather[1]: "--"}
                       </div>
                     </div>
                   </div>
@@ -35,21 +66,21 @@ const Dashboard = () => {
                 </div>
                 <div className="weather-details">
                   <div className="detail-item">
-                    <span className="detail-label">Humidity</span>
+                    <span className="detail-label">Rainfall</span>
                     <span className="detail-value" id="currentHumidity">
-                      --%
+                      {weather && weather[5] != null ? weather[5] + " mm" : "-- mm"}
                     </span>
                   </div>
                   <div className="detail-item">
                     <span className="detail-label">Wind</span>
                     <span className="detail-value" id="currentWind">
-                      -- km/h
+                      {weather && weather[12] != null ? weather[12]+" km/hr": "--km/hr"}
                     </span>
                   </div>
                   <div className="detail-item">
                     <span className="detail-label">Pressure</span>
                     <span className="detail-value" id="currentPressure">
-                      -- hPa
+                      {weather  && weather[18] != null ? weather[18]+" hPa/gpm": "--hPa/gpm"}
                     </span>
                   </div>
                   <div className="detail-item">
@@ -67,7 +98,7 @@ const Dashboard = () => {
               <div className="card__header">
                 <h3>Raspberry Pi Status</h3>
                 <div className="status" id="piStatusBadge">
-                  Checking...
+                  {loading? "Checking...": data? "Online":"Offline"}
                 </div>
               </div>
               <div className="card__body">

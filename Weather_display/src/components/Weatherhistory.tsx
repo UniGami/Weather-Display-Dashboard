@@ -1,7 +1,24 @@
-// import React from 'react'
+import { useState,useEffect } from "react";
+import axios from "axios";
+
 
 const Weatherhistory = () => {
+  const [weather, setWeather] = useState<string[][]>([]);
+    useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/getData") // your friend's server endpoint
+      .then((res) => {
+        console.log("Server data:", res);
+        setWeather(res.data.res);
+        console.log(weather);
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+      });
+  }, []);
+  
   return (
+    
     <>
       {/* <!-- Weather History Tab Content --> */}
       <div className="tab-content" id="history">
@@ -32,7 +49,16 @@ const Weatherhistory = () => {
                   </tr>
                 </thead>
                 <tbody id="weatherHistoryTable">
-                  {/* <!-- Table rows will be populated by JS --> */}
+                  {weather.map((row, index) => (
+                    <tr key={index}>
+                      <td>{row[4]}</td> 
+                      <td>{row[6]}</td>
+                      <td>{row[5]}</td> 
+                      <td>{row[12]}</td>
+                      <td>{row[18]}</td>
+                      <td>-</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
