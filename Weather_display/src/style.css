@@ -162,7 +162,7 @@
     --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
     --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
     --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
-    
+
     /* Semantic Color Tokens (Dark Mode) */
     --color-background: var(--color-charcoal-700);
     --color-surface: var(--color-charcoal-800);
@@ -222,7 +222,7 @@
   --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
   --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
   --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
-  
+
   /* Semantic Color Tokens (Dark Mode) */
   --color-background: var(--color-charcoal-700);
   --color-surface: var(--color-charcoal-800);
@@ -268,7 +268,7 @@
   --color-brown-600-rgb: 94, 82, 64;
   --color-teal-500-rgb: 33, 128, 141;
   --color-slate-900-rgb: 19, 52, 59;
-  
+
   /* Semantic Color Tokens (Light Mode) */
   --color-background: var(--color-cream-50);
   --color-surface: var(--color-cream-100);
@@ -732,9 +732,9 @@ select.form-control {
 }
 
 @font-face {
-  font-family: 'FKGroteskNeue';
-  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2')
-    format('woff2');
+  font-family: "FKGroteskNeue";
+  src: url("https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2")
+    format("woff2");
 }
 
 /* END PERPLEXITY DESIGN SYSTEM */
@@ -798,6 +798,10 @@ select.form-control {
   width: 16px;
   height: 16px;
 }
+
+/* Tab Content */
+/* .tab-content {
+} */
 
 
 
@@ -1167,7 +1171,7 @@ select.form-control {
 }
 
 .loading::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1193,50 +1197,50 @@ select.form-control {
     gap: var(--space-16);
     align-items: flex-start;
   }
-  
+
   .nav-tabs {
     flex-wrap: wrap;
     gap: var(--space-2);
   }
-  
+
   .nav-tab {
     padding: var(--space-8) var(--space-12);
     font-size: var(--font-size-sm);
   }
-  
+
   .dashboard-layout {
     gap: var(--space-24);
   }
-  
+
   .weather-details {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .status-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .monitor-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .table-container {
     font-size: var(--font-size-xs);
   }
-  
+
   .weather-table th,
   .weather-table td {
     padding: var(--space-8) var(--space-4);
   }
-  
+
   .charts-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .chart-container {
     height: 250px;
   }
-  
+
   .section-header h2 {
     font-size: var(--font-size-2xl);
   }
@@ -1246,15 +1250,15 @@ select.form-control {
   .chart-container {
     height: 220px;
   }
-  
+
   .charts-grid {
     gap: var(--space-16);
   }
-  
+
   .temp-value {
     font-size: 2.5rem;
   }
-  
+
   .weather-icon {
     font-size: 2.5rem;
   }
