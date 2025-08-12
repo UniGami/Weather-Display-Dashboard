@@ -803,9 +803,8 @@ select.form-control {
 /* .tab-content {
 } */
 
-.tab-content.active {
-  display: block;
-}
+
+
 
 /* Dashboard Layout */
 .dashboard-layout {
